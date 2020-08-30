@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2018 Google Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!--
+The app bar is a section at the top of the display that can display the activity title, navigation,
+and other interactive items.
+
+The native ActionBar behaves differently depending on the version of Android running on the device.
+For this reason, if you are adding an options menu, you should use the v7 appcompat support library's Toolbar
+as an app bar.
+
+Using the Toolbar makes it easy to set up an app bar that works on the widest range of devices,
+and also gives you room to customize your app bar later on as your app develops.
+
+Toolbar includes the most recent features, and works for any device that can use the support library.
+
+Reference:
+https://codelabs.developers.google.com/codelabs/android-training-menus-and-pickers/index.html?index=..%2F..android-training#2
+-->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.droidcafeinput.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--The activity_main.xml layout also uses an include layout statement to include the entire layout
+    defined in content_main.xml.
+
+    This separation of layout definitions makes it easier to change the layout's content apart from
+    the layout's toolbar definition and coordinator layout.
+
+    This is a best practice for separating your content (which may need to be translated)
+    from the format of your layout.
+    -->
+
+    <include layout="@layout/content_main" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/ic_shopping_cart" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
